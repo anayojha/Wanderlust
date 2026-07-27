@@ -65,7 +65,7 @@ store.on("error",() => {
 })
 
 app.get("/",(req,res)=>{
-    res.send("Hi Root is Working")
+    res.redirect("/listings")
 })
 
 app.use(session(sessionOptions))
