@@ -1,4 +1,4 @@
-if(process.env.NODE_env != "production"){
+if(process.env.NODE_ENV !== "production"){
     require("dotenv").config()
 }
 
@@ -60,7 +60,7 @@ const sessionOptions = {
     }
 }
 
-store.on("error",() => {
+store.on("error",(err) => {
    console.log("Error in MONGO SESSION STORE",err)
 })
 
