@@ -1,11 +1,12 @@
 {
-  "engines" :{
+  "engines": {
     "node": "26.5.0"
   },
   "dependencies": {
     "axios": "^1.18.1",
     "cloudinary": "^1.41.3",
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^6.0.0",
     "dotenv": "^17.4.2",
     "ejs": "^6.0.1",
     "ejs-mate": "^4.0.0",
@@ -14,7 +15,6 @@
     "express-session": "^1.19.0",
     "joi": "^18.2.3",
     "method-override": "^3.0.0",
-    "mongo-store": "^0.0.2",
     "mongoose": "^9.6.3",
     "multer": "^2.2.0",
     "multer-storage-cloudinary": "^4.0.0",
