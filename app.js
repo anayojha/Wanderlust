@@ -49,17 +49,15 @@ const store = MongoStore.create({
 })
 
 const sessionOptions = {
-    store,
-    secret : process.env.SECRET,
-    saveUninitialized : true,
-    resave : false,
+    secret: process.env.SECRET,
+    saveUninitialized: false,
+    resave: false,
     cookie: {
-    httpOnly : true,
-    expires : Date.now() + 7*24*60*60*1000 ,
-    maxAge : 7*24*60*60*1000
+        httpOnly: true,
+        expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+        maxAge: 7 * 24 * 60 * 60 * 1000
     }
-}
-
+};
 store.on("error",(err) => {
    console.log("Error in MONGO SESSION STORE",err)
 })
