@@ -64,9 +64,6 @@ store.on("error",(err) => {
    console.log("Error in MONGO SESSION STORE",err)
 })
 
-app.get("/",(req,res)=>{
-    return res.redirect("/listings")
-})
 
 app.use(session(sessionOptions))
 app.use(flash())
@@ -81,6 +78,9 @@ app.use((req,res,next)=>{
     res.locals.error = req.flash("error")
     res.locals.currUser = req.user
     next()
+})
+app.get("/",(req,res)=>{
+    return res.redirect("/listings")
 })
 
 app.use("/listings",listingRouter)
