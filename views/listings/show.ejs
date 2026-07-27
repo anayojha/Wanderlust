@@ -114,7 +114,7 @@
          <div id="map" style="height:400px;"></div>
          
         <script>
-         const coordinates = JSON.parse('<%- JSON.stringify(listing.geometry.coordinates) %>');
+         const coordinates = <%- JSON.stringify(listing.geometry.coordinates) %>;
          const locationName = "<%= listing.location %>";
         </script>
         
