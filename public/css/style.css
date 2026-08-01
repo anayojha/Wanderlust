@@ -101,61 +101,86 @@ body{
     object-fit: cover;
 }
 
+.top-controls{
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
 #filters{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1.5rem;
+    gap: 0.8rem;
+    flex: 1;
 }
 
+
+
 .filter-link{
-    text-decoration: none;
-    color: inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
 .filter-link:hover{
-    color: inherit;
-    text-decoration: none;
+    color:inherit;
 }
 
 .filter{
     text-align: center;
+    margin-right: 0.5rem;   /* was 2rem */
+    margin-top: 1rem;
     opacity: 0.7;
-    transition: all 0.2s ease;
 }
 
 .filter:hover{
-    opacity: 1;
-    cursor: pointer;
+    opacity:1;
+    cursor:pointer;
 }
 
-.filter.active{
-    opacity: 1;
-    color: #fe424f;
+.filter i{
+    font-size: 1rem;   /* reduce from default (~1.5rem+) to save horizontal space */
 }
 
-.filter.active i{
-    color: #fe424f;
+.filter p{
+    font-size: 0.5rem;   /* was 0.8rem */
+    margin-top: 0.2rem;
 }
 
-.filter.active p{
-    color: #fe424f;
-    font-weight: bold;
+.filter-actions{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    /* remove the fixed width: 240px — let content decide the size */
 }
 
-.filter.active::after{
-    content: "";
-    display: block;
+.tax-toggle{
+    width: auto;              /* was 260px — let it size to the text */
+    min-height: 3.5rem;
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    padding: 0.8rem 1.2rem;
+    background: white;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;      /* stops "Display total after tax" from wrapping */
+}
+
+.sort-container{
+    width: 260px;  /* match roughly to how wide tax-toggle ends up, adjust after checking in browser */
+}
+
+.sort-container .form-select{
     width: 100%;
-    height: 2px;
-    background: #fe424f;
-    margin-top: 4px;
+    border-radius: 16px;
 }
 
-.sort-form{
-    width: 230px;
+.tax-info{
+    display:none;
 }
-
-.sort-form select{
-    border-radius: 10px;
+.f-info-socials a{
+    color: inherit;
+    text-decoration: none;
 }

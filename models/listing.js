@@ -34,7 +34,6 @@ const listingSchema = new Schema({
         "Rooms",
         "Iconic Cities",
         "Mountains",
-        "Castles",
         "Amazing Pools",
         "Camping",
         "Farms",
