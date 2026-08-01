@@ -41,10 +41,20 @@
       </div>
 
       <!-- Center -->
-      <form class="d-flex mx-auto" role="search">
-        <input class="form-control me-2 input-btn" type="search" placeholder="Search Destination">
-        <button class="btn search-btn" type="submit">Search</button>
-      </form>
+<form class="d-flex mx-auto" role="search" action="/listings" method="GET">
+    <input
+    class="form-control me-2 input-btn"
+    type="search" 
+    name="q"
+    placeholder="Search Destination"
+    value="<%= typeof q !== 'undefined' ? q : '' %>"
+  >
+
+  <button class="btn search-btn" type="submit">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    Search
+  </button>
+</form>
 
       <!-- Right -->
       <div class="navbar-nav ms-auto">

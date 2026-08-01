@@ -100,3 +100,62 @@ body{
     height: 30rem;
     object-fit: cover;
 }
+
+#filters{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.filter-link{
+    text-decoration: none;
+    color: inherit;
+}
+
+.filter-link:hover{
+    color: inherit;
+    text-decoration: none;
+}
+
+.filter{
+    text-align: center;
+    opacity: 0.7;
+    transition: all 0.2s ease;
+}
+
+.filter:hover{
+    opacity: 1;
+    cursor: pointer;
+}
+
+.filter.active{
+    opacity: 1;
+    color: #fe424f;
+}
+
+.filter.active i{
+    color: #fe424f;
+}
+
+.filter.active p{
+    color: #fe424f;
+    font-weight: bold;
+}
+
+.filter.active::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fe424f;
+    margin-top: 4px;
+}
+
+.sort-form{
+    width: 230px;
+}
+
+.sort-form select{
+    border-radius: 10px;
+}

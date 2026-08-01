@@ -1,7 +1,6 @@
 if(process.env.NODE_ENV !== "production"){
     require("dotenv").config()
 }
-
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
@@ -39,6 +38,9 @@ app.use(express.urlencoded({extended : true}))
 app.use(methodOverride("_method"));
 app.engine('ejs',ejsMate)
 app.use(express.static(path.join(__dirname,"/public")))
+const favicon = require("serve-favicon");
+
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
@@ -70,8 +72,6 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 app.use((req,res,next)=>{
-    console.log("LOCAL MIDDLEWARE RUNNING");
-    console.log("USER:", req.user);
     res.locals.success = req.flash("success")
     res.locals.error = req.flash("error")
     res.locals.currUser = req.user

@@ -2,10 +2,41 @@ const axios = require("axios");
 const Listing = require("../models/listing")
 
 module.exports.index = async (req, res) => {
-    const allListings = await Listing.find({})
-    res.render("listings/index.ejs", { allListings })
-}
+    const { q, category, sort } = req.query;
+    console.log(req.query);
+    let filter = {};
 
+    if (q) {
+        filter.$or = [
+            { title: { $regex: q, $options: "i" } },
+            { location: { $regex: q, $options: "i" } },
+            { country: { $regex: q, $options: "i" } },
+        ];
+    }
+
+    if (category) {
+        filter.category = category;
+    }
+
+    let query = Listing.find(filter);
+
+    if (sort === "low") {
+        query = query.sort({ price: 1 });
+    }
+
+    if (sort === "high") {
+        query = query.sort({ price: -1 });
+    }
+
+    const allListings = await query;
+
+    res.render("listings/index.ejs", {
+        allListings,
+        q,
+        category,
+        sort,
+    });
+};
 module.exports.renderNewForm = (req, res) => {
     res.render("listings/new.ejs")
 }
